@@ -30,7 +30,7 @@ ul {
 }
 
 nav {
-    max-width: 1500px;
+    /* max-width: 1500px; */
     margin: auto;
     padding: 24px 160px;
 
@@ -68,16 +68,17 @@ main {
 }
 
 .hero {
-    max-width: 1500px;
+    /* max-width: 1500px; */
     height: 60vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 96px;
-    padding: 0px 32px;
+    padding: 0px 160px;
     margin: auto;
     overflow: clip;
+    height: 100vh;
 
     
 }
@@ -86,13 +87,12 @@ main {
     display: flex;
     flex-direction: column;
     gap: 16px ;
-    padding: 0px 32px;
 
 }
 
 h1 {
     font-family: Montserrat;
-    font-weight: 800;
+    font-weight: 1000;
     font-size: 56px;
 }
 
@@ -135,9 +135,9 @@ button {
 .Musicas {
     display: flex;
     flex-direction: column;
-    max-width: 1500px;
+    /* max-width: 1500px; */
     padding: 64px 32px;
-    margin: auto;
+    margin: 0 160px;
 }
 .Musicas-cabecalho{
     display: flex;
@@ -158,12 +158,23 @@ button {
     font-weight: 400;
 }
 
-.Musicas-card-container {
-    padding: 0px 160px ;
+.Musicas-card-separadas{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    gap: 64px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Musicas-card-container {
+    /* padding: 0px 160px ; */
+    display: flex;
+    flex-direction: column;
     gap: 32px;
+    width: 100%;
+    
     
 }
 
@@ -175,7 +186,7 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    flex-basis: 465px;
+    flex-basis: 1000px;
     margin-top: 32px ;
 }
 
