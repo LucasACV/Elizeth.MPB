@@ -290,5 +290,62 @@ footer {
 
 }
 
+/* Obras */
+
+.Obras-Main{
+
+}
+
+.Obras{
+    background: #181012;
+}
+
+.Obras-Titulo{
+    font-family: tekko;
+    font-weight: 700;
+    font-size: large;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+
+.Obras-Discos{
+    display: flex;
+    flex-direction: column;
+}
+
+.Obras-Separadas{
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+
+
+.Obras-Separadas-Dentro{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+    border: 2px solid white;
+    
+}
+
+
+.Obras-img {
+    width: 160px;
+    height: 160px;
+}
+
+.Obras-Sobre{
+    display: flex;
+    flex-direction: column;
+    
+    /* justify-content: center; */
+    padding: 30px 0 0 0; 
+
+}
 
 
