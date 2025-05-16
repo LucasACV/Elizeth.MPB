@@ -27,13 +27,16 @@ rel='stylesheet'>
                     <form action="" class="formulario">
                         <h1>Cadastro</h1>
                         <div class="input-box">
-                                <input type="text" placeholder="Insira seu Nome:" id="nome">
+                                <input type="text" placeholder="Insira seu Nome:" id="input_nome">
                         </div>
                         <div class="input-box">
                             <input type="text" placeholder="Insira seu e-mail" id="input_email"> 
                         </div>
                         <div class="input-box">
                             <input type="Number" placeholder="Insira sua idade" id="input_idade"> 
+                        </div>
+                         <div class="input-box">
+                            <input type="text" placeholder="Insira seu sexo" id="input_sexo"> 
                         </div>
                         <div class="input-box">
                             <input type="password" placeholder="insira sua senha" id="input_senha"> 
@@ -64,6 +67,9 @@ rel='stylesheet'>
       var senha = input_senha.value;
       var confSenha = input_confSenha.value;
       var mensagem = "";
+      var idade = input_idade.value
+      var nome = input_nome.value
+      var sexo = input_sexo.value
 
       if (email.indexOf('@') === -1) {
         mensagem = 'O email deve conter o símbolo @.';
@@ -75,9 +81,28 @@ rel='stylesheet'>
         mensagem = 'A confirmação de senha deve ser igual à senha.';
         alert('A confirmação de senha deve ser igual à senha.');
       } else {
+
+        fetch("http://localhost:8080/usuarios/cadastrar",{
+            method:"POST",
+            headers: {
+                "content-type":"application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nome ,
+                idadeServer: idade,
+                sexoServer: sexo,
+                senhaServer: senha,
+                emailServer: email
+
+            }
+
+            )
+        })
         mensagem = 'Cadastro válido!';
         alert('Cadastro válido!');
         window.location.href = "Login.html";
+
+
       }
 
       div_mensagem.innerHTML = mensagem;
