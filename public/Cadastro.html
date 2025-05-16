@@ -27,24 +27,25 @@ rel='stylesheet'>
                     <form action="" class="formulario">
                         <h1>Cadastro</h1>
                         <div class="input-box">
-                                <input type="text" placeholder="Insira seu Nome:">
+                                <input type="text" placeholder="Insira seu Nome:" id="nome">
                         </div>
                         <div class="input-box">
-                            <input type="password" placeholder="Insira seu e-mail"> 
+                            <input type="text" placeholder="Insira seu e-mail" id="input_email"> 
                         </div>
                         <div class="input-box">
-                            <input type="password" placeholder="Insira sua idade"> 
+                            <input type="Number" placeholder="Insira sua idade" id="input_idade"> 
                         </div>
                         <div class="input-box">
-                            <input type="password" placeholder="insira sua senha"> 
+                            <input type="password" placeholder="insira sua senha" id="input_senha"> 
                         </div>
                         <div class="input-box">
-                            <input type="password" placeholder="Confirme sua senha"> 
+                            <input type="password" placeholder="Confirme sua senha"id="input_confSenha"> 
                         </div>
-                        <button type="submit" class="login-button">Cadastro</button>
+                        <button type="button" class="login-button" onclick="validarCadastro()"><a href="./public/Login.html"></a>Cadastro</button>
                         
                         
                     </form>
+                    <div id="div_mensagem" class="Resposta"></div>
                 </div>
                 
          </div>
@@ -55,3 +56,30 @@ rel='stylesheet'>
     </footer>
 </body>
 </html>
+
+
+  <script>
+    function validarCadastro() {
+      var email = input_email.value;
+      var senha = input_senha.value;
+      var confSenha = input_confSenha.value;
+      var mensagem = "";
+
+      if (email.indexOf('@') === -1) {
+        mensagem = 'O email deve conter o símbolo @.';
+        alert('O email deve conter o símbolo @.');
+      } else if (senha.length <= 6 || !/[0-9]/.test(senha)) {
+        mensagem = 'A senha deve ter mais de 6 caracteres e pelo menos um número.';
+        alert('A senha deve ter mais de 6 caracteres e pelo menos um número.');
+      } else if (senha !== confSenha) {
+        mensagem = 'A confirmação de senha deve ser igual à senha.';
+        alert('A confirmação de senha deve ser igual à senha.');
+      } else {
+        mensagem = 'Cadastro válido!';
+        alert('Cadastro válido!');
+        window.location.href = "Login.html";
+      }
+
+      div_mensagem.innerHTML = mensagem;
+    }
+  </script>
