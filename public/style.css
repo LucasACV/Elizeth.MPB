@@ -275,6 +275,7 @@ footer {
     font-size: 16px;
     color: #fff;
     padding: 20px 45px 20px 20px;
+    
 
 }
 
@@ -320,6 +321,7 @@ footer {
     flex-direction: row;
     padding: 40px;
     justify-content: space-between;
+    gap: 20px;
 }
 
 
@@ -330,6 +332,7 @@ footer {
     padding: 20px;
     gap: 20px;
     border: 2px solid white;
+    border-radius: 40px;
     
 }
 
