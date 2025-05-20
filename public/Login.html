@@ -27,14 +27,14 @@ rel='stylesheet'>
                     <form action="" class="formulario">
                         <h1>Login</h1>
                         <div class="input-box">
-                            <input type="text" placeholder="Usuário">
+                            <input type="text" placeholder="Email" id="input_email">
                             <i class="bx bxs-user"></i>
                         </div>
                         <div class="input-box">
-                            <input type="password" placeholder="Senha">
+                            <input type="password" placeholder="Senha" id="input_senha">
                             <i class="bx bxs-lock-alt"></i>
                         </div>
-                        <button type="submit" class="login-button">Login</button>
+                        <button type="submit" class="login-button" onclick="entrar()">Login</button>
                         
                         <div class="registro-link">
                             <p>Não tem uma conta? <a href="./Cadastro.html">Cadastre-se</a></p>
@@ -50,3 +50,56 @@ rel='stylesheet'>
     </footer>
 </body>
 </html>
+<script>
+
+
+    function entrar() {
+
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.senha;
+                    
+
+                    
+                        window.location = "./dashboard/cards.html";
+                
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+</script>
