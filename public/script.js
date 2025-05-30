@@ -145,6 +145,7 @@ function selecionarResposta(e){
     if(ecorreto){
         SelecionadoBtn.classList.add("correta")
         score++
+
     }else{
         SelecionadoBtn.classList.add("incorreta")
         erradas++
@@ -186,3 +187,42 @@ proximabotao.addEventListener("click",() => {
 })
 
 comecarQuiz();
+
+
+// function showScore(){
+//     resetState();
+//     questaoElement.innerHTML = `Você acertou ${score} e errou ${erradas} questões!`;
+//     proximabotao.innerHTML = `Veja o resultado de todos em nossa DashBoard!`;
+//     dicasAprendizado.style.display = "block";
+//     proximabotao.style.display = "block";
+
+//     // 💡 Pegando a última questão respondida
+//     const ultimaQuestao = questoes[questaoIndex - 1];
+//     const textoUltimaPergunta = ultimaQuestao.questoes;
+
+//     // 📤 Enviando via fetch
+//     fetch("https://sua-api.com/salvar-resultados", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             usuario_id: 123, // coloque o ID do usuário se você tiver isso
+//             score_total: score,
+//             ultima_pergunta: textoUltimaPergunta
+//         })
+//     }).then(response => {
+//         if (!response.ok) {
+//             throw new Error("Erro ao enviar dados");
+//         }
+//         return response.json();
+//     }).then(data => {
+//         console.log("Enviado com sucesso:", data);
+//     }).catch(error => {
+//         console.error("Erro no envio:", error);
+//     });
+
+//     proximabotao.onclick = () => {
+//         window.location.href = "./dashboard.html"; // ir pro dashboard
+//     };
+// }
