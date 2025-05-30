@@ -541,14 +541,21 @@ footer {
     /* Quiz */
 
     .quiz-principal{
-        width: 90%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     
     .app{
+        
         width: 90%;
         max-width: 600px;
         margin: 100px auto 0;
         padding: 30px;
+        border: 2px solid ;
+        border-radius: 8px;
     }
 
     .app h1{
@@ -560,6 +567,7 @@ footer {
 
     .quiz{
         padding: 20px 0;
+
     }
 
     .quiz h2{
@@ -599,4 +607,9 @@ footer {
         background: #ff9393;
     }
 
-    
+    #dicas-aprendizado{
+        display: none;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
