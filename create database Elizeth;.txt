@@ -1,0 +1,27 @@
+create database Elizeth;
+use Elizeth;
+
+create table usuario (
+idusuario int primary key auto_increment,
+nome varchar(45),
+idade int,
+sexo varchar(45),
+email varchar(45) UNIQUE,
+senha varchar(45)
+
+);
+
+
+
+
+create table respostas (
+idrespostas int primary key auto_increment,
+score int not null,
+textoUltimaPergunta text,
+fk_usuario int ,
+constraint chk_resp foreign key (fk_usuario) references usuario (idusuario)
+);
+
+truncate table respostas;
+ALTER TABLE respostas
+ADD CONSTRAINT uq_usuario_resposta UNIQUE (fk_usuario);
