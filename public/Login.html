@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-rel='stylesheet'> 
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-       <header> <!-- aba de navegação do site -->
+    <header>
         <nav>
             <span class="logo">divina elizeth</span>
             <ul class="menu">
@@ -21,85 +21,77 @@ rel='stylesheet'>
             </ul>
         </nav>
     </header>
+
     <main>
         <div class="login-cadastro">
-                <div class="login-box">
-                    <form action="" class="formulario">
-                        <h1>Login</h1>
-                        <div class="input-box">
-                            <input type="text" placeholder="Email" id="input_email">
-                            <i class="bx bxs-user"></i>
-                        </div>
-                        <div class="input-box">
-                            <input type="password" placeholder="Senha" id="input_senha">
-                            <i class="bx bxs-lock-alt"></i>
-                        </div>
-                        <button type="submit" class="login-button" onclick="entrar()">Login</button>
-                        
-                        <div class="registro-link">
-                            <p>Não tem uma conta? <a href="./Cadastro.html">Cadastre-se</a></p>
-                        </div>
-                    </form>
+            <div class="login-box">
+                <h1>Login</h1>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Email" id="input_email">
+                    <i class="bx bxs-user"></i>
                 </div>
-                
-         </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Senha" id="input_senha">
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <button type="button" class="login-button" onclick="entrar()">Login</button>
+
+                <div class="registro-link">
+                    <p>Não tem uma conta? <a href="./Cadastro.html">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer> <!-- roda pé do site  -->
+
+    <footer>
         <p class="footer-copy">Copyright 2025</p>
         <p class="footer-autor">Feito por Lucas Valdez</p>
     </footer>
+
+    <script>
+        function entrar() {
+            var email = document.getElementById('input_email').value;
+            var senha = document.getElementById('input_senha').value;
+
+            console.log("FORM LOGIN: ", email);
+            console.log("FORM SENHA: ", senha);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!");
+
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(json);
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idusuario;
+
+                        alert("Login válido");
+                        window.location = "quiz.html";
+                    });
+                } else {
+                    resposta.text().then(msg => {
+                        alert("Erro: " + msg);
+                        console.error("Erro ao logar:", msg);
+                    });
+                }
+            }).catch(function (erro) {
+                console.error("Erro na requisição fetch:", erro);
+            });
+        }
+    </script>
 </body>
+
 </html>
-<script>
-
-
-    function entrar() {
-
-        var email = input_email.value;
-        var senha = input_senha.value;
-
-        console.log("FORM LOGIN: ", email);
-        console.log("FORM SENHA: ", senha);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.senha;
-                    
-
-                    
-                        window.location = "./dashboard/cards.html";
-                
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
-
-</script>

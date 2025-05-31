@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,23 @@
     <title>Quiz</title>
 
 </head>
+
 <body>
     <header> <!-- aba de navegação do site -->
         <nav>
             <span class="logo">divina elizeth</span>
             <ul class="menu">
-                
+
                 <li><a href="./dashboard.html">DashBoard</a></li>
                 <li><a href="./quiz.html">Quiz</a></li>
                 <li><a href="./index.html">Sair</a></li>
+                <p>Bem vindo, <span id="usuarionome"></span></p>
             </ul>
+
+            <script>
+                
+                usuarionome.innerHTML = sessionStorage.NOME_USUARIO
+            </script>
         </nav>
     </header>
 
@@ -26,11 +34,10 @@
             <div class="quiz">
                 <h2 id="questao">A pergunta vai aqui</h2>
                 <div id="botao-resposta">
-                    <button class="btn">resposta 1</button>
-                    <button class="btn">resposta 2</button>
-                    <button class="btn">resposta 3</button>
-                    <button class="btn">resposta 4</button>
-
+                    <button class="btn" onclick="alternativaSelecionada = 'A'">resposta 1</button>
+                    <button class="btn" onclick="alternativaSelecionada = 'B'">resposta 2</button>
+                    <button class="btn" onclick="alternativaSelecionada = 'C'">resposta 3</button>
+                    <button class="btn" onclick="alternativaSelecionada = 'D'">resposta 4</button>
                 </div>
                 <button id="proxima-pergunta">Próxima</button>
                 <div id="dicas-aprendizado">
@@ -52,6 +59,7 @@
         <p class="footer-copy">Copyright 2025</p>
         <p class="footer-autor">Feito por Lucas Valdez</p>
     </footer>
-    
+
 </body>
-</html>
+
+</ht

@@ -82,7 +82,7 @@ rel='stylesheet'>
         alert('A confirmação de senha deve ser igual à senha.');
       } else {
 
-        fetch("http://localhost:8080/usuarios/cadastrar",{
+        fetch("/usuarios/cadastrar",{
             method:"POST",
             headers: {
                 "content-type":"application/json",
