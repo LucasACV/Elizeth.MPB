@@ -240,17 +240,17 @@ footer {
   align-items: center;
   height: 100vh; /* Força a altura da tela inteira */
   background-color: #130c0d; /* Ou o que estiver usando */
-  height: calc(100vh - 70px);
 }
 
 .login-box {
-  background: #181012;
-  padding: 40px;
-  border-radius: 12px;
-  border: 2px solid #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background: #181012;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 .input-box{
     position: relative;
