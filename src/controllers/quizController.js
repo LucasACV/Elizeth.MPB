@@ -1,7 +1,7 @@
 var quizModel = require("../models/quizModel")
 
 function envioscore(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    
     var fk_usuario = req.body.fk_usuarioServer;
     var score = req.body.scoreServer;
     var textoUltimaPergunta = req.body.textoUltimaPerguntaServer;
