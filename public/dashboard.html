@@ -18,7 +18,13 @@
                 <li><a href="./dashboard.html">DashBoard</a></li>
                 <li><a href="./quiz.html">Quiz</a></li>
                 <li><a href="./index.html">Sair</a></li>
+                <p>Bem vindo, <span id="usuarionome"></span></p>
             </ul>
+
+            <script>
+                
+                usuarionome.innerHTML = sessionStorage.NOME_USUARIO
+            </script>
         </nav>
     </header>
 
@@ -79,6 +85,7 @@
         </div>
         <div class="grafico">
             <div class="div-grafico1">
+                <h3>Pessoas que fizeram o Quiz divido por Idade e Sexo</h3>
                 <canvas id="myChart1"></canvas>
             </div>
             <div class="div-grafico2">
@@ -118,7 +125,7 @@
     const ctx2 = document.getElementById('myChart2');
 
 
-    fetch("/dash/graficoskpis").
+    fetch("/dash/graficoskpis"). // informações das KPIs que estão a cima dos graficos
         then(function (resposta) {
             resposta.json().then(
                 function (kpis) {
@@ -132,7 +139,7 @@
             )
         }),
 
-        fetch("/dash/graficos1")
+        fetch("/dash/graficos1")  // peguei os dados para colocar no grafico a esquerda
             .then(function (resposta) {
                 resposta.json().then(
                     function (grafico1) {
@@ -188,13 +195,13 @@
                 )
             })
 
-    fetch("/dash/graficos2")
+    fetch("/dash/graficos2") // peguei os dados para o grafico a direita
         .then(function (resposta) {
             resposta.json().then(
                 function (grafico2) {
                     console.log(grafico2)
-                    let maisque50 = grafico2[0].total_pessoas
-                    let menosque50 = grafico2[1].total_pessoas
+                    let maisque50 = grafico2[0].total_pessoas;
+                    let menosque50 = grafico2[1].total_pessoas;
 
                     new Chart(ctx2, {
                         type: 'doughnut',
