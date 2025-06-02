@@ -110,9 +110,9 @@ hr {
     font-weight: 400;
 }
 
-.hero-imagens-container {
+.hero-imagens-container { 
     max-width: 45%;
-    column-count: 3;
+    column-count: 3;  
     column-gap: 16px;
     }
 
@@ -359,7 +359,7 @@ footer {
     /* justify-content: center; */
     padding: 30px ; 
     word-wrap: break-word;     /* Garante que palavras longas quebrem */
-    overflow-wrap: break-word; /* Compatibilidade adicional */
+    overflow-wrap: break-word; 
     white-space: normal; 
 
 }

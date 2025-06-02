@@ -1,6 +1,6 @@
 var quizModel = require("../models/quizModel")
 
-function envioscore(req, res) {
+function envioscore(req, res) {   // envia os dados do quiz pro bd
     
     var fk_usuario = req.body.fk_usuarioServer;
     var score = req.body.scoreServer;

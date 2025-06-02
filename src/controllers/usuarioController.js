@@ -14,7 +14,7 @@ function autenticar(req, res) {
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
@@ -67,7 +67,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
 
-      //  usuarioModel.obterporemail(email).then  a fazer confirmação de email cadastrado
+      
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome,idade,sexo,email,senha)

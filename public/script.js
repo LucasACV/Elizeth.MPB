@@ -113,7 +113,7 @@ function comecarQuiz() {
     showQuestion();
 }
 
-function resetState() { // garante que a cada questão os botoes sejam renovados
+function resetState() { // garante que o primeiro elemento vá sendo removido
     dicasAprendizado.style.display = "none";
     proximabotao.style.display = "none";
     while (respostabotao.firstChild) {
@@ -158,7 +158,7 @@ function selecionarResposta(e) {
     Array.from(respostabotao.children).forEach((button) => {
         button.disabled = true;
     });
-    proximabotao.style.display = "block";
+    proximabotao.style.display = "block"; // deixa o o botão da proxima pergunta aparecer , dps que alguem marcar um alternativa
 }
 
 function showScore() {
@@ -195,7 +195,7 @@ function showScore() {
 }
 
 
-function proximobotao() {
+function proximobotao() {  // vai fazendo verificação de alternativa ate chegar na ultima , (que sao 10)
     questaoIndex++;
     if (questaoIndex < questoes.length) {
         showQuestion();

@@ -58,7 +58,7 @@ function obterMetricasIdadeSexo() {
 FROM usuario u
 JOIN respostas r ON u.idusuario = r.fk_usuario
 
-UNION ALL
+UNION ALL 
 
 SELECT
   'Feminino' AS sexo,

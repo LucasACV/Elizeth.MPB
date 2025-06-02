@@ -1,6 +1,6 @@
 var dashModel = require("../models/dashModel")
 
-function dashController1(req, res) {
+function dashController1(req, res) {  // info do primeiro grafico 
     
     dashModel.obterMetricasIdadeSexo().then(
         function(metricas){
@@ -9,7 +9,7 @@ function dashController1(req, res) {
         }
     )
 }
-function dashController2(req, res) {
+function dashController2(req, res) {  // info do segundo grafico
     dashModel.obterMetricasdeAcertos().then(
         function(metricas2){
             console.log(metricas2)
@@ -18,7 +18,7 @@ function dashController2(req, res) {
     )
 }
 
-function dashControllerKpi(req, res) {
+function dashControllerKpi(req, res) {  // info de todas as kpis .. usado then dentro de then para buscar uma informação dps da outra
     
     dashModel.obtersexoscore().then(
         
